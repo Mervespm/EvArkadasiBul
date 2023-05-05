@@ -9,32 +9,33 @@
     <EditText
         android:id="@+id/editTextEmailAddress"
         android:layout_width="300dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="230dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="150dp"
         android:layout_marginBottom="29dp"
         android:ems="10"
         android:hint="Email Girin"
+        android:textSize="15sp"
         android:inputType="textEmailAddress"
         app:layout_constraintBottom_toTopOf="@+id/editTextPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.888" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <EditText
         android:id="@+id/editTextPassword"
         android:layout_width="300dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="372dp"
+        android:layout_height="55dp"
+        android:layout_marginBottom="444dp"
         android:ems="10"
         android:hint="Şifre Girin"
+        android:textSize="15sp"
         android:inputType="textPassword"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextEmailAddress" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/button"
@@ -43,28 +44,29 @@
         android:layout_marginBottom="292dp"
         android:onClick="signInClicked"
         android:text="Giriş Yap"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextPassword"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.28" />
 
     <TextView
         android:id="@+id/changePassword"
-        android:layout_width="326dp"
-        android:layout_height="26dp"
+        android:layout_width="328dp"
+        android:layout_height="41dp"
         android:clickable="true"
         android:gravity="center"
         android:onClick="changePassword"
         android:text="Şifrenizi değiştirin."
+        android:textSize="15dp"
         app:fontFamily="sans-serif-black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.341"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button"
-        app:layout_constraintVertical_bias="0.109"
-        app:textAllCaps="false"
-        android:textSize="18dp"/>
+        app:layout_constraintVertical_bias="0.085"
+        app:textAllCaps="false" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
