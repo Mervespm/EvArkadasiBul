@@ -9,8 +9,8 @@
     <EditText
         android:id="@+id/SurnameText"
         android:layout_width="280dp"
-        android:layout_height="35dp"
-        android:layout_marginTop="12dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="8dp"
         android:ems="10"
         android:hint="Soyadınız"
         android:inputType="textPersonName"
@@ -23,22 +23,22 @@
     <EditText
         android:id="@+id/Password"
         android:layout_width="280dp"
-        android:layout_height="35dp"
-        android:layout_marginTop="12dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="8dp"
         android:ems="10"
         android:hint="Şifre Girin"
         android:inputType="textPassword"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/EmailAddress" />
 
     <EditText
         android:id="@+id/EmailAddress"
         android:layout_width="280dp"
-        android:layout_height="35dp"
-        android:layout_marginTop="12dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="8dp"
         android:ems="10"
         android:hint="Email Girin"
         android:inputType="textEmailAddress"
@@ -50,8 +50,8 @@
 
     <EditText
         android:id="@+id/NameText"
-        android:layout_width="280dp"
-        android:layout_height="35dp"
+        android:layout_width="279dp"
+        android:layout_height="48dp"
         android:layout_marginTop="24dp"
         android:ems="10"
         android:hint="İsminiz"
@@ -64,23 +64,22 @@
     <EditText
         android:id="@+id/enteringYear"
         android:layout_width="280dp"
-        android:layout_height="35dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="8dp"
         android:ems="10"
         android:hint=" Giris Yılınız"
         android:inputType="number"
         android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.472" />
+        app:layout_constraintTop_toBottomOf="@+id/SurnameText" />
 
     <EditText
         android:id="@+id/graduateYear"
         android:layout_width="280dp"
-        android:layout_height="35dp"
-        android:layout_marginTop="12dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="8dp"
         android:ems="10"
         android:hint="Mezuniyet Yılınız"
         android:inputType="number"
@@ -92,14 +91,13 @@
 
     <ImageView
         android:id="@+id/profileImage"
-        android:layout_width="175dp"
-        android:layout_height="181dp"
+        android:layout_width="164dp"
+        android:layout_height="171dp"
 
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="16dp"
         android:contentDescription="TODO"
         android:onClick="selectImage"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/image"
@@ -109,19 +107,19 @@
         android:id="@+id/kayitOl"
         android:layout_width="207dp"
         android:layout_height="48dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginBottom="92dp"
         android:onClick="signUpClicked"
         android:text="Kayıt Ol"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Password"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.428" />
 
     <TextView
         android:id="@+id/alreadySignedUp"
-        android:layout_width="326dp"
-        android:layout_height="26dp"
+        android:layout_width="333dp"
+        android:layout_height="39dp"
         android:clickable="true"
         android:gravity="center"
         android:onClick="signInIntent"

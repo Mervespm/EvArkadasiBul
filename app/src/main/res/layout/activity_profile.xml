@@ -10,112 +10,107 @@
         android:id="@+id/location"
         android:layout_width="279dp"
         android:layout_height="50dp"
+        android:layout_marginTop="8dp"
         android:ems="10"
         android:hint="Şehir"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.79" />
+        app:layout_constraintTop_toBottomOf="@+id/education" />
 
     <EditText
         android:id="@+id/education"
         android:layout_width="279dp"
         android:layout_height="50dp"
+        android:layout_marginTop="12dp"
         android:ems="10"
         android:hint="Eğitim Durumunuz"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.716" />
+        app:layout_constraintTop_toBottomOf="@+id/graduateYear" />
 
     <EditText
         android:id="@+id/phoneNumber"
         android:layout_width="279dp"
         android:layout_height="50dp"
+        android:layout_marginTop="12dp"
         android:ems="10"
         android:hint="Telefon Numaranız"
         android:inputType="phone"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.49" />
+        app:layout_constraintTop_toBottomOf="@+id/SurnameText" />
 
     <EditText
         android:id="@+id/enteringYear"
         android:layout_width="279dp"
         android:layout_height="50dp"
-        android:layout_marginBottom="200dp"
+        android:layout_marginTop="8dp"
         android:ems="10"
         android:hint="Giriş Yılınız"
         android:inputType="number"
-        app:layout_constraintBottom_toTopOf="@+id/save"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/phoneNumber" />
 
     <EditText
         android:id="@+id/SurnameText"
         android:layout_width="279dp"
         android:layout_height="50dp"
+        android:layout_marginTop="12dp"
         android:ems="10"
         android:hint="Soyadınız"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.417" />
+        app:layout_constraintTop_toBottomOf="@+id/NameText" />
 
     <Button
         android:id="@+id/save"
         android:layout_width="97dp"
         android:layout_height="55dp"
-        android:layout_marginBottom="40dp"
+        android:layout_marginTop="36dp"
         android:onClick="editProfile"
         android:text="Kaydet"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/location" />
 
     <EditText
         android:id="@+id/NameText"
         android:layout_width="279dp"
         android:layout_height="50dp"
-        android:layout_marginBottom="4dp"
+        android:layout_marginTop="12dp"
         android:ems="10"
         android:hint="İsminiz"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/SurnameText"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profileImage" />
 
     <EditText
         android:id="@+id/graduateYear"
         android:layout_width="279dp"
         android:layout_height="50dp"
-        android:layout_marginBottom="148dp"
+        android:layout_marginTop="8dp"
         android:ems="10"
         android:hint="Mezuniyet Yılınız"
         android:inputType="number"
-        app:layout_constraintBottom_toTopOf="@+id/save"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/enteringYear" />
 
     <ImageView
         android:id="@+id/profileImage"
-        android:layout_width="233dp"
-        android:layout_height="160dp"
-        android:layout_marginBottom="28dp"
+        android:layout_width="201dp"
+        android:layout_height="159dp"
         android:contentDescription="TODO"
         android:onClick="selectImage"
-        app:layout_constraintBottom_toTopOf="@+id/NameText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/image"
+        tools:layout_editor_absoluteY="27dp"
         tools:srcCompat="@drawable/image" />
 
 

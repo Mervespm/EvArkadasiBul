@@ -64,7 +64,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="310dp"
         android:layout_marginBottom="6dp"
-        android:text="Deatylar:"
+        android:text="Detaylar:"
         app:layout_constraintBottom_toTopOf="@+id/scrollView2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

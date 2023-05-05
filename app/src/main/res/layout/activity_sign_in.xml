@@ -11,31 +11,28 @@
         android:layout_width="300dp"
         android:layout_height="55dp"
         android:layout_marginTop="150dp"
-        android:layout_marginBottom="29dp"
         android:ems="10"
         android:hint="Email Girin"
-        android:textSize="15sp"
         android:inputType="textEmailAddress"
-        app:layout_constraintBottom_toTopOf="@+id/editTextPassword"
+        android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/editTextPassword"
         android:layout_width="300dp"
         android:layout_height="55dp"
-        android:layout_marginBottom="444dp"
+        android:layout_marginTop="27dp"
         android:ems="10"
         android:hint="Şifre Girin"
-        android:textSize="15sp"
         android:inputType="textPassword"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextEmailAddress" />
 
     <Button
         android:id="@+id/button"
@@ -49,7 +46,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextPassword"
-        app:layout_constraintVertical_bias="0.28" />
+        app:layout_constraintVertical_bias="0.14" />
 
     <TextView
         android:id="@+id/changePassword"
@@ -63,10 +60,10 @@
         app:fontFamily="sans-serif-black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.341"
+        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button"
-        app:layout_constraintVertical_bias="0.085"
+        app:layout_constraintVertical_bias="0.086"
         app:textAllCaps="false" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
