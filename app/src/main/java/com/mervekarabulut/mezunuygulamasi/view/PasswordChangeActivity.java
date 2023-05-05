@@ -29,8 +29,6 @@ public class PasswordChangeActivity extends AppCompatActivity {
         setContentView(view);
 
         FirebaseAuth auth = FirebaseAuth.getInstance();
-
-
     }
     public void changePass(View view){
         FirebaseAuth auth = FirebaseAuth.getInstance();
@@ -38,7 +36,6 @@ public class PasswordChangeActivity extends AppCompatActivity {
         String pass = binding.oldPassword1.getText().toString();
         String pass2 = binding.oldPassword2.getText().toString();
         String newPass = binding.newPassword.getText().toString();
-
         if(email.equals("") || pass.equals("")){
             Toast.makeText(this, "Email ya da şifre giriniz", Toast.LENGTH_LONG).show();
         }else{
@@ -48,8 +45,6 @@ public class PasswordChangeActivity extends AppCompatActivity {
 
                     if(pass.equals(pass2)){
                         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-
-
                         user.updatePassword(newPass)
                                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                                     @Override
@@ -60,11 +55,9 @@ public class PasswordChangeActivity extends AppCompatActivity {
                                     }
                                 });
                     }
-
                     Intent intent = new Intent(PasswordChangeActivity.this, FeedActivity.class);
                     startActivity(intent);
                     finish();
-
                 }
             }).addOnFailureListener(new OnFailureListener() {
                 @Override

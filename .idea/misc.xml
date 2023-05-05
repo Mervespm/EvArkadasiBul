@@ -5,7 +5,7 @@
       <map>
         <entry key="app/src/main/res/layout/activity_details.xml" value="0.28940217391304346" />
         <entry key="app/src/main/res/layout/activity_feed.xml" value="0.2947916666666667" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.29583333333333334" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_main2.xml" value="0.18931159420289856" />
         <entry key="app/src/main/res/layout/activity_my_posts.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/activity_password_change.xml" value="0.3098958333333333" />
@@ -15,7 +15,7 @@
         <entry key="app/src/main/res/layout/activity_upload.xml" value="0.2947916666666667" />
         <entry key="app/src/main/res/layout/activity_user_details.xml" value="0.2648803047511889" />
         <entry key="app/src/main/res/layout/card_holder.xml" value="0.2267389933268229" />
-        <entry key="app/src/main/res/layout/card_layout.xml" value="0.14189453124999998" />
+        <entry key="app/src/main/res/layout/card_layout.xml" value="0.3672119140625" />
         <entry key="app/src/main/res/layout/progress_layout.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/recycler_item.xml" value="0.20923913043478262" />
         <entry key="app/src/main/res/menu/option_menu.xml" value="0.3098958333333333" />
