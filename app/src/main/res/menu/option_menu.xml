@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/add_post" android:title="Yeni Gönderi"></item>
+    <item android:id="@+id/signOut" android:title="Çıkış Yap"></item>
+    <item android:id="@+id/editProfile" android:title="Profili Duzenle"></item>
+    <item android:id="@+id/searchUser" android:title="Kullanici Ara"></item>
+    <item android:id="@+id/myPosts" android:title="Benim Postlarim"></item>
+
+
+</menu>

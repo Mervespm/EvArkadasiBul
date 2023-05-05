@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "443333926994",
+    "firebase_url": "https://mezun-119d6-default-rtdb.firebaseio.com",
+    "project_id": "mezun-119d6",
+    "storage_bucket": "mezun-119d6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:443333926994:android:b6fd7aa47efd1d6a7e7f8b",
+        "android_client_info": {
+          "package_name": "com.mervekarabulut.mezunuygulamasi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "443333926994-2i3rh6knfaa6f7k5soitkucgrub39ggq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCJZzjpv2WvlmVb8ex21rr0ovN_dpbyYUY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "443333926994-2i3rh6knfaa6f7k5soitkucgrub39ggq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

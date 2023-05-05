@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.UserDetailsActivity">
+
+
+    <TextView
+        android:id="@+id/NameSurname"
+        android:layout_width="290dp"
+        android:layout_height="55dp"
+        android:layout_marginBottom="14dp"
+        android:text="isim soyisim"
+        app:layout_constraintBottom_toTopOf="@+id/email"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profileImage" />
+
+    <TextView
+        android:id="@+id/phone"
+        android:layout_width="290dp"
+        android:layout_height="55dp"
+        android:layout_marginBottom="16dp"
+        android:text="telefon"
+        app:layout_constraintBottom_toTopOf="@+id/button3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/educationType" />
+
+    <TextView
+        android:id="@+id/educationType"
+        android:layout_width="290dp"
+        android:layout_height="55dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/phone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/city" />
+
+    <TextView
+        android:id="@+id/city"
+        android:layout_width="290dp"
+        android:layout_height="55dp"
+        android:layout_marginBottom="15dp"
+        android:text="sehir"
+        app:layout_constraintBottom_toTopOf="@+id/educationType"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Years" />
+
+    <TextView
+        android:id="@+id/email"
+        android:layout_width="290dp"
+        android:layout_height="55dp"
+        android:layout_marginBottom="18dp"
+        android:text="email"
+        app:layout_constraintBottom_toTopOf="@+id/Years"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/NameSurname" />
+
+    <ImageView
+        android:id="@+id/profileImage"
+        android:layout_width="179dp"
+        android:layout_height="156dp"
+        android:layout_marginTop="39dp"
+        android:layout_marginBottom="21dp"
+        android:contentDescription="TODO"
+        app:layout_constraintBottom_toTopOf="@+id/NameSurname"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/download"
+        tools:srcCompat="@drawable/download" />
+
+    <TextView
+        android:id="@+id/Years"
+        android:layout_width="290dp"
+        android:layout_height="58dp"
+        android:layout_marginBottom="10dp"
+        android:text="2010-1019"
+        app:layout_constraintBottom_toTopOf="@+id/city"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/email" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="221dp"
+        android:layout_height="52dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="89dp"
+        android:text="Geri dön"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/phone"
+        app:layout_constraintTop_toBottomOf="@+id/phone" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
