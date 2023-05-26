@@ -36,8 +36,8 @@
 
     <Button
         android:id="@+id/button"
-        android:layout_width="207dp"
-        android:layout_height="45dp"
+        android:layout_width="202dp"
+        android:layout_height="35dp"
         android:layout_marginBottom="292dp"
         android:onClick="signInClicked"
         android:text="Giriş Yap"
@@ -50,8 +50,8 @@
 
     <TextView
         android:id="@+id/changePassword"
-        android:layout_width="328dp"
-        android:layout_height="41dp"
+        android:layout_width="314dp"
+        android:layout_height="36dp"
         android:clickable="true"
         android:gravity="center"
         android:onClick="changePassword"

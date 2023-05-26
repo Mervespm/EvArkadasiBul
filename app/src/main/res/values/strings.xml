@@ -4,4 +4,6 @@
     <string name="distance_hint">Mesafeyi girin</string>
     <string name="state_label">Durum</string>
     <string name="search_button">Ara</string>
+    <string name="title_activity_maps">MapsActivity</string>
+    <string name="title_activity_maps2">MapsActivity2</string>
 </resources>

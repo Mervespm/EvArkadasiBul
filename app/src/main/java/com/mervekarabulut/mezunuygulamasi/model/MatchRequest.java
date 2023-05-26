@@ -5,9 +5,25 @@ public class MatchRequest {
     public String senderId;
     public String receiverId;
     public String status;  // "pending", "accepted", "rejected"
+    public String senderName;
 
     public MatchRequest() {
         // Default constructor required for calls to DataSnapshot.getValue(MatchRequest.class)
+    }
+    public MatchRequest(String key, String senderId, String receiverId, String status, String senderName) {
+        this.key = key;
+        this.senderId = senderId;
+        this.receiverId = receiverId;
+        this.status = status;
+        this.senderName = senderName;
+    }
+
+    public void setSenderName(String senderName) {
+        this.senderName = senderName;
+    }
+
+    public String getSenderName() {
+        return senderName;
     }
 
     public String getKey() {
@@ -42,12 +58,7 @@ public class MatchRequest {
         this.status = status;
     }
 
-    public MatchRequest(String key, String senderId, String receiverId, String status) {
-        this.key = key;
-        this.senderId = senderId;
-        this.receiverId = receiverId;
-        this.status = status;
-    }
+
 
     // Getters and setters...
 }

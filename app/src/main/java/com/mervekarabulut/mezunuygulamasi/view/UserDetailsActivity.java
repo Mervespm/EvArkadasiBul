@@ -1,7 +1,5 @@
 package com.mervekarabulut.mezunuygulamasi.view;
 
-
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -22,7 +20,6 @@ import com.mervekarabulut.mezunuygulamasi.R;
 import com.mervekarabulut.mezunuygulamasi.databinding.ActivityUserDetailsBinding;
 import com.mervekarabulut.mezunuygulamasi.model.DataHolder;
 import com.mervekarabulut.mezunuygulamasi.model.MatchRequest;
-
 
 public class UserDetailsActivity extends AppCompatActivity {
 
@@ -65,22 +62,21 @@ public class UserDetailsActivity extends AppCompatActivity {
                 matchRequest.setKey(key);
                 matchRequest.setSenderId(currentUser.getUid());
                 matchRequest.setReceiverId(user.getUid());
+                matchRequest.setSenderName(currentUser.getEmail());
                 System.out.println(currentUser.getUid() + " "+ user.getUid());
                 matchRequest.setStatus("pending");
 
-                dbRef.child("MatchRequests").child(key).setValue(matchRequest)
-                        .addOnSuccessListener(new OnSuccessListener<Void>() {
-                            @Override
-                            public void onSuccess(Void aVoid) {
-                                Toast.makeText(UserDetailsActivity.this, "Eşleşme talebi başarıyla gönderildi", Toast.LENGTH_SHORT).show();
-                            }
-                        })
-                        .addOnFailureListener(new OnFailureListener() {
-                            @Override
-                            public void onFailure(@NonNull Exception e) {
-                                Toast.makeText(UserDetailsActivity.this, "Eşleşme talebi gönderilemedi", Toast.LENGTH_SHORT).show();
-                            }
-                        });
+                dbRef.child("MatchRequests").child(key).setValue(matchRequest).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        Toast.makeText(UserDetailsActivity.this, "Eşleşme talebi başarıyla gönderildi", Toast.LENGTH_SHORT).show();
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(UserDetailsActivity.this, "Eşleşme talebi gönderilemedi", Toast.LENGTH_SHORT).show();
+                    }
+                });
             }
         });
 

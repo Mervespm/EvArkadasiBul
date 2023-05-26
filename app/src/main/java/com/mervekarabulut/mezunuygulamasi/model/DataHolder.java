@@ -15,7 +15,16 @@ public class DataHolder implements Serializable {
     String distance;
     String duration;
     String pImage;
-    String Uid;
+    String uid;
+
+    public DataHolder() {
+    }
+    public DataHolder(String email, String name, String surname, String Uid) {
+        this.email = email;
+        this.name = name;
+        this.surname = surname;
+        this.uid = uid;
+    }
 
     public DataHolder(String email, String password, String name, String surname, String phone, String department, String year, String state, String distance, String duration, String pImage) {
         this.email = email;
@@ -30,6 +39,18 @@ public class DataHolder implements Serializable {
         this.duration = duration;
         this.pImage = pImage;
     }
+    public DataHolder(String email, String password, String name, String surname, String enteringYear, String graduateYear) {
+        this.email = email;
+        this.password = password;
+        this.name = name;
+        this.surname = surname;
+    }
+    public String getUid() {
+        return uid;
+    }
+
+
+
 
     public String getPassword() {
         return password;
@@ -81,26 +102,8 @@ public class DataHolder implements Serializable {
 
 
 
-    public DataHolder() {
-    }
 
-    public DataHolder(String email, String password, String name, String surname, String enteringYear, String graduateYear) {
-        this.email = email;
-        this.password = password;
-        this.name = name;
-        this.surname = surname;
-    }
 
-    public String getUid() {
-        return Uid;
-    }
-
-    public DataHolder(String email, String name, String surname, String Uid) {
-        this.email = email;
-        this.name = name;
-        this.surname = surname;
-        this.Uid = Uid;
-    }
 
     public String getName() {
         return name;

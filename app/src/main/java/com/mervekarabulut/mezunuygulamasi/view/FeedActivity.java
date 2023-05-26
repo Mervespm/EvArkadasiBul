@@ -54,6 +54,15 @@ public class FeedActivity extends AppCompatActivity {
         }else if(item.getItemId() == R.id.searchUser){
             Intent intentMain = new Intent(this, SearchUserActivity.class);
             startActivity(intentMain);
+        }else if(item.getItemId() == R.id.myPosts) {
+            Intent intentMain = new Intent(this, MapsActivity.class);
+            startActivity(intentMain);
+        }else if(item.getItemId() == R.id.add_post) {
+            Intent intentMain = new Intent(this, MapsActivity2.class);
+            startActivity(intentMain);
+        }else if(item.getItemId() == R.id.myMatchs) {
+            Intent intentMain = new Intent(this, MatchRequestList.class);
+            startActivity(intentMain);
         }
         return super.onOptionsItemSelected(item);
     }
