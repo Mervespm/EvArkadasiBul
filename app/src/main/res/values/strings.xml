@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">MezunUygulamasi</string>
-
+    <string name="filter_prompt">Filtre seçin</string>
+    <string name="distance_hint">Mesafeyi girin</string>
+    <string name="state_label">Durum</string>
+    <string name="search_button">Ara</string>
 </resources>

@@ -2,103 +2,153 @@ package com.mervekarabulut.mezunuygulamasi.view;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
 import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.view.View;
 import android.widget.Toast;
 
-
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.mervekarabulut.mezunuygulamasi.adapter.UserAdapter;
-import com.mervekarabulut.mezunuygulamasi.databinding.ActivitySearchUserBinding;
+import com.mervekarabulut.mezunuygulamasi.R;
+import com.mervekarabulut.mezunuygulamasi.adapter.SearchUserAdapter;
 import com.mervekarabulut.mezunuygulamasi.model.DataHolder;
 
-import org.checkerframework.checker.units.qual.A;
-
 import java.util.ArrayList;
-import java.util.Locale;
+import java.util.List;
 
-public class SearchUserActivity extends AppCompatActivity {
-    private ActivitySearchUserBinding binding;
-    RecyclerView recyclerView;
-    DatabaseReference databaseReference;
-    ArrayList <DataHolder> list;
+import android.os.Bundle;
+import android.text.TextUtils;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Spinner;
+
+
+public class SearchUserActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+    private EditText distanceEditText;
+    private EditText searchEditText;
+    private Spinner stateSpinner;
+    private Button searchButton;
+    private RecyclerView recyclerView;
+    private SearchUserAdapter userAdapter;
+
+    private DatabaseReference userReference;
+    private ValueEventListener valueEventListener;
+
+    private List<DataHolder> userList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
-        binding = ActivitySearchUserBinding.inflate(getLayoutInflater());
-        View view = binding.getRoot();
-        setContentView(view);
+        setContentView(R.layout.activity_search_user);
 
-        binding.rc.setHasFixedSize(true);
-        binding.rc.setLayoutManager(new LinearLayoutManager(SearchUserActivity.this));
+        searchEditText = findViewById(R.id.searchEditText);
+        distanceEditText = findViewById(R.id.distanceEditText);
+        searchButton = findViewById(R.id.searchButton);
+        recyclerView = findViewById(R.id.recyclerView);
 
-        databaseReference = FirebaseDatabase.getInstance().getReference().child("Registered Users");
+        // Set up RecyclerView
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        userList = new ArrayList<>();
+        userAdapter = new SearchUserAdapter(this);
+        recyclerView.setAdapter(userAdapter);
 
 
+        // Get a reference to the "Registered Users" node
+        userReference = FirebaseDatabase.getInstance().getReference("Registered Users");
+        searchButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                searchUsers();
+            }
+        });
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        if(databaseReference != null){
-            databaseReference.addValueEventListener(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot snapshot) {
-                    if(snapshot.exists()){
-                        list = new ArrayList<>();
-                        for(DataSnapshot ds: snapshot.getChildren()){
-                            list.add(ds.getValue(DataHolder.class));
-                        }
-                        UserAdapter userAdapter = new UserAdapter(list);
-                        binding.rc.setAdapter(userAdapter);
+
+        // Add a ValueEventListener to listen for changes in the user data
+        valueEventListener = userReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                userList.clear();
+                // Iterate through the snapshot to retrieve user data
+                for (DataSnapshot userSnapshot : snapshot.getChildren()) {
+                    DataHolder user = userSnapshot.getValue(DataHolder.class);
+                    if (user != null) {
+                        userList.add(user);
                     }
                 }
 
-                @Override
-                public void onCancelled(@NonNull DatabaseError error) {
-                    Toast.makeText(SearchUserActivity.this,  error.getMessage(), Toast.LENGTH_LONG).show();
-                }
-            });
-        }
-        if(binding.search != null){
-            binding.search.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-                @Override
-                public boolean onQueryTextSubmit(String query) {
-                    return false;
-                }
+                // Update the user list in the adapter
+                userAdapter.updateUserList(userList);
+            }
 
-                @Override
-                public boolean onQueryTextChange(String newText) {
-                    search(newText);
-                    return true;
-                }
-            });
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                // Handle onCancelled event if needed
+            }
+        });
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+
+        // Remove the ValueEventListener when the activity is stopped
+        if (valueEventListener != null) {
+            userReference.removeEventListener(valueEventListener);
         }
     }
 
-    private void search(String s){
-
-        ArrayList<DataHolder> myList = new ArrayList<>();
-        for(DataHolder o: list){
-
-            if(o.getName().toLowerCase().contains(s.toLowerCase())){
-                myList.add(o);
-            }
+    private void searchUsers() {
+        String searchQuery = searchEditText.getText().toString();
+        String distanceText = distanceEditText.getText().toString();
+        int maxDistance = 100;
+        if (!distanceText.isEmpty()) {
+            maxDistance = Integer.parseInt(distanceText);
         }
-        UserAdapter userAdapter = new UserAdapter(myList);
+        // Kullanıcıları arama ve filtreleme işlemleri
+        List<DataHolder> filteredUsers = new ArrayList<>();
+        for (DataHolder user : userList) {
+            if(user.getDistance() != null){
+                if(!user.getDistance().equals(""))
+                {
+                    if (user.getName().toLowerCase().contains(searchQuery.toLowerCase()) && Integer.parseInt(user.getDistance()) <= maxDistance) {
+                        filteredUsers.add(user);
+                    }
 
-        binding.rc.setAdapter(userAdapter);
+                }
+            }else{
+                if (user.getName().toLowerCase().contains(searchQuery.toLowerCase())) {
+                    filteredUsers.add(user);
+                }
+            }
 
+        }
+
+        // Update the user list in the adapter with the filtered results
+        userAdapter.updateUserList(filteredUsers);
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        // Perform search when a spinner item is selected
+        searchUsers();
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+        // Do nothing if no spinner item is selected
     }
 }

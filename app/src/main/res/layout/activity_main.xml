@@ -8,13 +8,13 @@
 
     <EditText
         android:id="@+id/SurnameText"
-        android:layout_width="280dp"
-        android:layout_height="48dp"
+        android:layout_width="273dp"
+        android:layout_height="38dp"
         android:layout_marginTop="8dp"
         android:ems="10"
         android:hint="Soyadınız"
         android:inputType="textPersonName"
-        android:textSize="14sp"
+        android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
@@ -22,99 +22,55 @@
 
     <EditText
         android:id="@+id/Password"
-        android:layout_width="280dp"
-        android:layout_height="48dp"
+        android:layout_width="273dp"
+        android:layout_height="38dp"
         android:layout_marginTop="8dp"
         android:ems="10"
         android:hint="Şifre Girin"
         android:inputType="textPassword"
-        android:textSize="14sp"
+        android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/EmailAddress" />
 
     <EditText
         android:id="@+id/EmailAddress"
-        android:layout_width="280dp"
-        android:layout_height="48dp"
+        android:layout_width="273dp"
+        android:layout_height="38dp"
         android:layout_marginTop="8dp"
         android:ems="10"
         android:hint="Email Girin"
         android:inputType="textEmailAddress"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.503"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/graduateYear" />
-
-    <EditText
-        android:id="@+id/NameText"
-        android:layout_width="279dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="24dp"
-        android:ems="10"
-        android:hint="İsminiz"
-        android:inputType="textPersonName"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profileImage" />
-
-    <EditText
-        android:id="@+id/enteringYear"
-        android:layout_width="280dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:hint=" Giris Yılınız"
-        android:inputType="number"
-        android:textSize="14sp"
+        android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/SurnameText" />
 
     <EditText
-        android:id="@+id/graduateYear"
-        android:layout_width="280dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="8dp"
+        android:id="@+id/NameText"
+        android:layout_width="273dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="64dp"
         android:ems="10"
-        android:hint="Mezuniyet Yılınız"
-        android:inputType="number"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/enteringYear" />
-
-    <ImageView
-        android:id="@+id/profileImage"
-        android:layout_width="164dp"
-        android:layout_height="171dp"
-
-        android:layout_marginTop="16dp"
-        android:contentDescription="TODO"
-        android:onClick="selectImage"
+        android:hint="İsminiz"
+        android:inputType="textPersonName"
+        android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/image"
-        tools:srcCompat="@drawable/image" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/kayitOl"
-        android:layout_width="207dp"
-        android:layout_height="48dp"
-        android:layout_marginBottom="92dp"
+        android:layout_width="191dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="24dp"
         android:onClick="signUpClicked"
         android:text="Kayıt Ol"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Password"
-        app:layout_constraintVertical_bias="0.428" />
+        app:layout_constraintTop_toBottomOf="@+id/Password" />
 
     <TextView
         android:id="@+id/alreadySignedUp"
@@ -127,10 +83,9 @@
         app:fontFamily="sans-serif-black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/kayitOl"
-        app:layout_constraintVertical_bias="0.22"
+        app:layout_constraintVertical_bias="0.041"
         app:textAllCaps="false" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

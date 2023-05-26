@@ -16,9 +16,6 @@
         android:theme="@style/Theme.MezunUygulamasi"
         tools:targetApi="31">
         <activity
-            android:name=".view.MyPostsActivity"
-            android:exported="false" />
-        <activity
             android:name=".view.UserDetailsActivity"
             android:exported="false" />
         <activity
@@ -31,13 +28,7 @@
             android:name=".view.SignInActivity"
             android:exported="false" />
         <activity
-            android:name=".view.ProfileActivity"
-            android:exported="false" />
-        <activity
-            android:name=".view.DetailsActivity"
-            android:exported="false" />
-        <activity
-            android:name=".view.UploadActivity"
+            android:name=".view.UpdateProfileActivity"
             android:exported="false" />
         <activity
             android:name=".view.FeedActivity"

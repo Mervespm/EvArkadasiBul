@@ -20,29 +20,29 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/TextNameSurname"
+                android:id="@+id/nameTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                android:text="email"
+                android:text="Name Surname"
                 android:textColor="#000"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/TextEmail"
+                android:id="@+id/distanceTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                android:text="Name Surname"
+                android:text="Ev ariyor"
                 android:textSize="12sp" />
 
             <TextView
-                android:id="@+id/Years"
+                android:id="@+id/stateTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                android:text="2019-2022"
+                android:text="10 km"
                 android:textSize="12sp" />
 
         </LinearLayout>

@@ -4,98 +4,160 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.UserDetailsActivity">
+    tools:context=".view.UpdateProfileActivity">
 
-    <TextView
+    <EditText
         android:id="@+id/Duration"
         android:layout_width="267dp"
         android:layout_height="36dp"
         android:layout_marginTop="8dp"
         android:ems="10"
+        android:hint="Süre (ay)"
+        android:inputType="number"
         android:textSize="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Distance" />
 
-    <TextView
+    <EditText
         android:id="@+id/Distance"
         android:layout_width="267dp"
         android:layout_height="36dp"
         android:layout_marginTop="8dp"
         android:ems="10"
+        android:hint="Uzaklık (km)"
+        android:inputType="number"
         android:textSize="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/StateText" />
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
 
-    <TextView
+    <EditText
         android:id="@+id/phoneNumber"
         android:layout_width="267dp"
         android:layout_height="36dp"
         android:layout_marginTop="8dp"
         android:ems="10"
+        android:hint="Telefon Numaranız"
+        android:inputType="phone"
         android:textSize="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/NameText" />
+        app:layout_constraintTop_toBottomOf="@+id/SurnameText" />
 
-    <TextView
+    <EditText
         android:id="@+id/Department"
         android:layout_width="267dp"
         android:layout_height="36dp"
         android:layout_marginTop="8dp"
         android:ems="10"
+        android:hint="Bölümünüz"
+        android:inputType="textPersonName"
         android:textSize="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/phoneNumber" />
 
-
+    <EditText
+        android:id="@+id/SurnameText"
+        android:layout_width="267dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="Soyadınız"
+        android:inputType="textPersonName"
+        android:textSize="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/NameText" />
 
     <Button
-        android:id="@+id/btnSendMatchRequest"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/sendRequrest"
+        android:layout_width="148dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="76dp"
+        android:onClick="editProfile"
+        android:text="Kaydet"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Duration"
-        android:layout_marginTop="24dp"
-        android:text="Talep Gönder"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/Distance" />
 
-    <TextView
+    <EditText
         android:id="@+id/NameText"
         android:layout_width="267dp"
         android:layout_height="36dp"
         android:layout_marginTop="8dp"
         android:ems="10"
+        android:hint="İsminiz"
+        android:textSize="15dp"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/profileImage" />
 
-
-
-
-    <TextView
-        android:id="@+id/StateText"
-        android:layout_width="267dp"
-        android:layout_height="36dp"
-        android:ems="10"
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="361dp"
+        android:layout_height="43dp"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
         android:layout_marginTop="8dp"
-        android:textSize="15dp"
+        android:gravity="center"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Year" />
+        app:layout_constraintTop_toBottomOf="@+id/Year">
 
+        <!--adding a radio button -->
 
-    <TextView
+        <!--adding a radio button -->
+
+        <!--adding a radio button -->
+
+        <RadioButton
+            android:id="@+id/LookingForHome"
+            android:layout_width="116dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:checked="false"
+            android:padding="4dp"
+            android:text="Kalacak Ev/Oda arıyor"
+            android:textAlignment="center"
+            android:textSize="12sp" />
+
+        <RadioButton
+            android:id="@+id/LookingForMate"
+            android:layout_width="149dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:checked="false"
+            android:padding="4dp"
+            android:text="Ev/Oda arkadaşı arıyor"
+            android:textAlignment="center"
+            android:textSize="12sp" />
+
+        <RadioButton
+            android:id="@+id/NotLooking"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:checked="true"
+            android:padding="4dp"
+            android:text="Aramıyor"
+            android:textAlignment="center"
+            android:textSize="12sp" />
+
+    </RadioGroup>
+
+    <EditText
         android:id="@+id/Year"
         android:layout_width="267dp"
         android:layout_height="36dp"
         android:layout_marginTop="8dp"
         android:ems="10"
+        android:hint="Sınıfınız (örn: 2)"
+        android:inputType="number"
         android:textSize="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -107,10 +169,12 @@
         android:layout_height="141dp"
         android:layout_marginTop="16dp"
         android:contentDescription="TODO"
+        android:onClick="selectImage"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/image"
         tools:srcCompat="@drawable/image" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

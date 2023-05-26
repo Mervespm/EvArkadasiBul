@@ -1,49 +1,105 @@
 package com.mervekarabulut.mezunuygulamasi.model;
 
-public class DataHolder {
+import java.io.Serializable;
+
+public class DataHolder implements Serializable {
 
     String email;
     String password;
     String name;
     String surname;
     String phone;
-    String enteringYear;
-    String graduateYear;
-    String education;
-    String city;
+    String department;
+    String year;
+    String state;
+    String distance;
+    String duration;
     String pImage;
+    String Uid;
 
-    public DataHolder() {
-
-    }
-
-    public DataHolder(String email, String password, String name, String surname,String enteringYear, String graduateYear) {
+    public DataHolder(String email, String password, String name, String surname, String phone, String department, String year, String state, String distance, String duration, String pImage) {
         this.email = email;
         this.password = password;
         this.name = name;
         this.surname = surname;
-        this.enteringYear = enteringYear;
-        this.graduateYear = graduateYear;
-
+        this.phone = phone;
+        this.department = department;
+        this.year = year;
+        this.state = state;
+        this.distance = distance;
+        this.duration = duration;
+        this.pImage = pImage;
     }
 
-    public DataHolder(String name, String surname, String enteringYear, String graduateYear) {
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(String department) {
+        this.department = department;
+    }
+
+    public String getYear() {
+        return year;
+    }
+
+    public void setYear(String year) {
+        this.year = year;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public String getDistance() {
+        return distance;
+    }
+
+    public void setDistance(String distance) {
+        this.distance = distance;
+    }
+
+    public String getDuration() {
+        return duration;
+    }
+
+    public void setDuration(String duration) {
+        this.duration = duration;
+    }
+
+
+
+    public DataHolder() {
+    }
+
+    public DataHolder(String email, String password, String name, String surname, String enteringYear, String graduateYear) {
+        this.email = email;
+        this.password = password;
         this.name = name;
         this.surname = surname;
-        this.enteringYear = enteringYear;
-        this.graduateYear = graduateYear;
     }
 
-    public DataHolder(String email,String name, String surname, String phone, String enteringYear, String graduateYear, String education, String city, String pImage) {
+    public String getUid() {
+        return Uid;
+    }
+
+    public DataHolder(String email, String name, String surname, String Uid) {
         this.email = email;
         this.name = name;
         this.surname = surname;
-        this.phone = phone;
-        this.enteringYear = enteringYear;
-        this.graduateYear = graduateYear;
-        this.education = education;
-        this.city = city;
-        this.pImage = pImage;
+        this.Uid = Uid;
     }
 
     public String getName() {
@@ -70,37 +126,7 @@ public class DataHolder {
         this.phone = phone;
     }
 
-    public String getEnteringYear() {
-        return enteringYear;
-    }
 
-    public void setEnteringYear(String enteringYear) {
-        this.enteringYear = enteringYear;
-    }
-
-    public String getGraduateYear() {
-        return graduateYear;
-    }
-
-    public void setGraduateYear(String graduateYear) {
-        this.graduateYear = graduateYear;
-    }
-
-    public String getEducation() {
-        return education;
-    }
-
-    public void setEducation(String education) {
-        this.education = education;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
 
     public String getpImage() {
         return pImage;
