@@ -6,16 +6,53 @@ public class MatchRequest {
     public String receiverId;
     public String status;  // "pending", "accepted", "rejected"
     public String senderName;
+    public String senderPhone;
+    public String senderEmail;
+
+
 
     public MatchRequest() {
         // Default constructor required for calls to DataSnapshot.getValue(MatchRequest.class)
     }
+
+    public MatchRequest(String key, String senderId, String receiverId, String status, String senderName, String senderPhone) {
+        this.key = key;
+        this.senderId = senderId;
+        this.receiverId = receiverId;
+        this.status = status;
+        this.senderName = senderName;
+        this.senderPhone = senderPhone;
+    }
+
     public MatchRequest(String key, String senderId, String receiverId, String status, String senderName) {
         this.key = key;
         this.senderId = senderId;
         this.receiverId = receiverId;
         this.status = status;
         this.senderName = senderName;
+    }
+
+    public String getReceiverId() {
+        return receiverId;
+    }
+
+    public void setReceiverId(String receiverId) {
+        this.receiverId = receiverId;
+    }
+
+    public String getSenderEmail() {
+        return senderEmail;
+    }
+
+    public void setSenderEmail(String senderEmail) {
+        this.senderEmail = senderEmail;
+    }
+    public String getSenderPhone() {
+        return senderPhone;
+    }
+
+    public void setSenderPhone(String senderPhone) {
+        this.senderPhone = senderPhone;
     }
 
     public void setSenderName(String senderName) {
@@ -42,13 +79,7 @@ public class MatchRequest {
         this.senderId = senderId;
     }
 
-    public String getReceiverId() {
-        return receiverId;
-    }
 
-    public void setReceiverId(String receiverId) {
-        this.receiverId = receiverId;
-    }
 
     public String getStatus() {
         return status;

@@ -16,13 +16,17 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.PopupMenu;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.snackbar.Snackbar;
@@ -77,7 +81,7 @@ public class UpdateProfileActivity extends AppCompatActivity {
         View view = binding.getRoot();
         setContentView(view);
 
-        registerLauncher();
+        registerLaunchers();
 
         auth = FirebaseAuth.getInstance();
         user = auth.getCurrentUser();
@@ -172,38 +176,71 @@ public class UpdateProfileActivity extends AppCompatActivity {
             }
         });
 
-        if (imageData != null){
+        if (imageData != null) {
             UUID uuid = UUID.randomUUID();
-            String imageName = "Photos/" + uuid +".jpg";
-            storageReference.child(imageName).putFile(imageData).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                @Override
-                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                    FirebaseStorage firebaseStorage = FirebaseStorage.getInstance();
-                    storageReference = firebaseStorage.getReference(imageName);
-                    storageReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                        @Override
-                        public void onSuccess(Uri uri) {
+            String imageName = "Photos/" + uuid + ".jpg";
+            FirebaseStorage storage = FirebaseStorage.getInstance();
+            StorageReference storageRef = storage.getReference();
+            StorageReference imageRef = storageRef.child(imageName);
 
-                            String downloadUrl = uri.toString();
+            UploadTask uploadTask = imageRef.putFile(imageData);
+            uploadTask.addOnSuccessListener(taskSnapshot -> {
+                imageRef.getDownloadUrl().addOnSuccessListener(uri -> {
+                    String downloadUrl = uri.toString();
 
-                            FirebaseUser user = auth.getCurrentUser();
+                    FirebaseUser user1 = auth.getCurrentUser();
+                    String email1 = user1.getEmail();
 
-                            String email = user.getEmail();
+                    HashMap<String, Object> postData = new HashMap<>();
+                    postData.put("usermail", email1);
+                    postData.put("url", downloadUrl);
+                    postData.put("date", FieldValue.serverTimestamp());
 
-                            HashMap<String, Object> postData = new HashMap<>();
-                            postData.put("usermail", email);
-                            postData.put("url", downloadUrl);
-                            postData.put("date", FieldValue.serverTimestamp());
-
-                            firebaseFirestore.collection("Photos").document(email).set(postData);
-                        }
-                    });
-                }
+                    firebaseFirestore.collection("Photos").document(email)
+                            .set(postData)
+                            .addOnSuccessListener(aVoid -> {
+                                // Yükleme ve kaydetme işlemi başarıyla tamamlandı
+                            })
+                            .addOnFailureListener(e -> {
+                                // Kaydetme işlemi sırasında hata oluştu
+                            });
+                }).addOnFailureListener(e -> {
+                    // Dosyanın indirme URL'sini alırken hata oluştu
+                });
+            }).addOnFailureListener(e -> {
+                // Dosyayı yüklerken hata oluştu
             });
         }
+
+
+
+
         Intent intent = new Intent(UpdateProfileActivity.this, FeedActivity.class);
         startActivity(intent);
         finish();
+    }
+
+    public void selectImageOrTakePhoto(View view) {
+        PopupMenu popupMenu = new PopupMenu(this, view);
+        popupMenu.getMenuInflater().inflate(R.menu.popup_menu, popupMenu.getMenu());
+
+        popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem menuItem) {
+                switch (menuItem.getItemId()) {
+                    case R.id.selectImage:
+                        selectImage(view);
+                        return true;
+                    case R.id.takePhoto:
+                        takePhoto(view);
+                        return true;
+                    default:
+                        return false;
+                }
+            }
+        });
+
+        popupMenu.show();
     }
 
     public void selectImage(View view){
@@ -224,7 +261,27 @@ public class UpdateProfileActivity extends AppCompatActivity {
 
         }
     }
-    private void registerLauncher() {
+
+    public void takePhoto(View view) {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+            if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.CAMERA)) {
+                Snackbar.make(view, "Kamera için erişim gereklidir", Snackbar.LENGTH_INDEFINITE)
+                        .setAction("İzin ver", new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                permissionLauncher.launch(Manifest.permission.CAMERA);
+                            }
+                        }).show();
+            } else {
+                permissionLauncher.launch(Manifest.permission.CAMERA);
+            }
+        } else {
+            Intent takePhotoIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+            activityResultLauncher.launch(takePhotoIntent);
+        }
+    }
+
+    private void registerLaunchers() {
         activityResultLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
             @Override
             public void onActivityResult(ActivityResult result) {
@@ -250,6 +307,35 @@ public class UpdateProfileActivity extends AppCompatActivity {
             }
         });
     }
+
+
+
+//    private void registerLauncher() {
+//        activityResultLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
+//            @Override
+//            public void onActivityResult(ActivityResult result) {
+//                if (result.getResultCode() == RESULT_OK) {
+//                    Intent intentFromResult = result.getData();
+//                    if (intentFromResult != null) {
+//                        imageData = intentFromResult.getData();
+//                        binding.profileImage.setImageURI(imageData);
+//                    }
+//                }
+//            }
+//        });
+//
+//        permissionLauncher = registerForActivityResult(new ActivityResultContracts.RequestPermission(), new ActivityResultCallback<Boolean>() {
+//            @Override
+//            public void onActivityResult(Boolean result) {
+//                if (result) {
+//                    Intent intentToGallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+//                    startActivity(intentToGallery);
+//                } else {
+//                    Toast.makeText(UpdateProfileActivity.this, "İzin gerekiyor!", Toast.LENGTH_SHORT).show();
+//                }
+//            }
+//        });
+//    }
 
 
 }

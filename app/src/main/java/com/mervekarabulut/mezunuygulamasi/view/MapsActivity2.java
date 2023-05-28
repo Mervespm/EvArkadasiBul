@@ -1,11 +1,10 @@
 package com.mervekarabulut.mezunuygulamasi.view;
-import android.content.pm.PackageManager;
+
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
+
 
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -52,12 +51,22 @@ public class MapsActivity2 extends AppCompatActivity implements OnMapReadyCallba
         childEventListener = new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String previousChildName) {
+//                String userId = dataSnapshot.getKey();
+//                double latitude = dataSnapshot.child("latitude").getValue(Double.class);
+//                double longitude = dataSnapshot.child("longitude").getValue(Double.class);
+//
+//                LatLng location = new LatLng(latitude, longitude);
+//                Marker marker = mMap.addMarker(new MarkerOptions().position(location).title(userId));
+//                markers.put(userId, marker);
+
                 String userId = dataSnapshot.getKey();
+                String userEmail = dataSnapshot.child("email").getValue(String.class); // Kullanıcı e-postasını al
+
                 double latitude = dataSnapshot.child("latitude").getValue(Double.class);
                 double longitude = dataSnapshot.child("longitude").getValue(Double.class);
 
                 LatLng location = new LatLng(latitude, longitude);
-                Marker marker = mMap.addMarker(new MarkerOptions().position(location).title(userId));
+                Marker marker = mMap.addMarker(new MarkerOptions().position(location).title(userEmail)); // Kullanıcı e-postasını başlık olarak kullan
                 markers.put(userId, marker);
             }
 
@@ -106,7 +115,7 @@ public class MapsActivity2 extends AppCompatActivity implements OnMapReadyCallba
         mMap = googleMap;
 
         // Haritayı başlangıç konumuna getir
-        LatLng initialLocation = new LatLng(37.7749, -122.4194); // Örnek bir başlangıç konumu
+        LatLng initialLocation = new LatLng(41.012945, 28.9130583); // Örnek bir başlangıç konumu
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(initialLocation, 10));
     }
 

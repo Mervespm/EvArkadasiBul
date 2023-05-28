@@ -50,7 +50,6 @@ public class SearchUserActivity extends AppCompatActivity implements AdapterView
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_user);
-
         searchEditText = findViewById(R.id.searchEditText);
         distanceEditText = findViewById(R.id.distanceEditText);
         searchButton = findViewById(R.id.searchButton);

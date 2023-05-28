@@ -1,10 +1,26 @@
-<?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/add_post" android:title="Kullanıcı Konumları"></item>
-    <item android:id="@+id/signOut" android:title="Çıkış Yap"></item>
-    <item android:id="@+id/editProfile" android:title="Profili Duzenle"></item>
-    <item android:id="@+id/searchUser" android:title="Kullanici Ara"></item>
-    <item android:id="@+id/myPosts" android:title="Benim Konumum"></item>
-    <item android:id="@+id/myMatchs" android:title="Talepler"></item>
-
+    <item
+        android:id="@+id/add_post"
+        android:icon="@drawable/sdfsdfs"
+        android:title="Kullanıcı Konumları" />
+    <item
+        android:id="@+id/signOut"
+        android:icon="@drawable/sign_out_icon"
+        android:title="Çıkış Yap" />
+    <item
+        android:id="@+id/editProfile"
+        android:icon="@drawable/edit"
+        android:title="Profili Düzenle" />
+    <item
+        android:id="@+id/searchUser"
+        android:icon="@drawable/search"
+        android:title="Kullanıcı Ara" />
+    <item
+        android:id="@+id/myPosts"
+        android:icon="@drawable/my_loc"
+        android:title="Benim Konumum" />
+    <item
+        android:id="@+id/myMatchs"
+        android:icon="@drawable/match"
+        android:title="Talepler" />
 </menu>

@@ -6,101 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".view.UserDetailsActivity">
 
-    <TextView
-        android:id="@+id/Duration"
-        android:layout_width="267dp"
-        android:layout_height="36dp"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:textSize="15dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Distance" />
-
-    <TextView
-        android:id="@+id/Distance"
-        android:layout_width="267dp"
-        android:layout_height="36dp"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:textSize="15dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/StateText" />
-
-    <TextView
-        android:id="@+id/phoneNumber"
-        android:layout_width="267dp"
-        android:layout_height="36dp"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:textSize="15dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/NameText" />
-
-    <TextView
-        android:id="@+id/Department"
-        android:layout_width="267dp"
-        android:layout_height="36dp"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:textSize="15dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/phoneNumber" />
-
-
-
-    <Button
-        android:id="@+id/btnSendMatchRequest"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Duration"
-        android:layout_marginTop="24dp"
-        android:text="Talep Gönder"
-        />
-
-    <TextView
-        android:id="@+id/NameText"
-        android:layout_width="267dp"
-        android:layout_height="36dp"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profileImage" />
-
-
-
-
-    <TextView
-        android:id="@+id/StateText"
-        android:layout_width="267dp"
-        android:layout_height="36dp"
-        android:ems="10"
-        android:layout_marginTop="8dp"
-        android:textSize="15dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Year" />
-
-
-    <TextView
-        android:id="@+id/Year"
-        android:layout_width="267dp"
-        android:layout_height="36dp"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:textSize="15dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Department" />
-
     <ImageView
         android:id="@+id/profileImage"
         android:layout_width="157dp"
@@ -108,9 +13,88 @@
         android:layout_marginTop="16dp"
         android:contentDescription="TODO"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/image"
         tools:srcCompat="@drawable/image" />
+
+    <TextView
+        android:id="@+id/NameText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:textSize="15dp"
+        app:layout_constraintEnd_toEndOf="@+id/profileImage"
+        app:layout_constraintStart_toStartOf="@+id/profileImage"
+        app:layout_constraintTop_toBottomOf="@+id/profileImage" />
+
+    <TextView
+        android:id="@+id/StateText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:textSize="15dp"
+        app:layout_constraintEnd_toEndOf="@+id/NameText"
+        app:layout_constraintStart_toStartOf="@+id/NameText"
+        app:layout_constraintTop_toBottomOf="@+id/NameText" />
+
+    <TextView
+        android:id="@+id/Department"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:textSize="15dp"
+        app:layout_constraintEnd_toEndOf="@+id/StateText"
+        app:layout_constraintStart_toStartOf="@+id/StateText"
+        app:layout_constraintTop_toBottomOf="@+id/StateText" />
+
+    <TextView
+        android:id="@+id/Year"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:textSize="15dp"
+        app:layout_constraintEnd_toEndOf="@+id/Department"
+        app:layout_constraintStart_toStartOf="@+id/Department"
+        app:layout_constraintTop_toBottomOf="@+id/Department" />
+
+    <TextView
+        android:id="@+id/Distance"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:textSize="15dp"
+        app:layout_constraintEnd_toEndOf="@+id/Year"
+        app:layout_constraintStart_toStartOf="@+id/Year"
+        app:layout_constraintTop_toBottomOf="@+id/Year" />
+
+    <TextView
+        android:id="@+id/Duration"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:textSize="15dp"
+        app:layout_constraintEnd_toEndOf="@+id/Distance"
+        app:layout_constraintStart_toStartOf="@+id/Distance"
+        app:layout_constraintTop_toBottomOf="@+id/Distance" />
+
+    <Button
+        android:id="@+id/btnSendMatchRequest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Talep Gönder"
+        app:layout_constraintEnd_toEndOf="@+id/Duration"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/Duration"
+        app:layout_constraintTop_toBottomOf="@+id/Duration" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,8 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/selectImage"
+        android:title="Galeriden Seç" />
+    <item
+        android:id="@+id/takePhoto"
+        android:title="Kameradan Çek" />
+</menu>

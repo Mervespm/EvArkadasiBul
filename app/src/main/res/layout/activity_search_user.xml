@@ -11,7 +11,8 @@
         android:layout_height="wrap_content"
         android:hint="isim"
         android:inputType="text"
-        android:maxLines="1" />
+        android:maxLines="1"
+        android:textSize = "13sp"/>
 
     <EditText
         android:id="@+id/distanceEditText"

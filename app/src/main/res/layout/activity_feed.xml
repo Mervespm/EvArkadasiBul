@@ -1,12 +1,68 @@
-<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingLeft="16dp"
+    android:paddingTop="16dp"
+    android:paddingRight="16dp"
+    android:paddingBottom="16dp"
     tools:context=".view.FeedActivity">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
+    <Button
+        android:id="@+id/buttonAddPost"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="122dp"
+        android:backgroundTint="#ECEFF1"
+        android:text="Kullanıcı Konumları"
+        android:textColor="#212121" />
+
+    <Button
+        android:id="@+id/buttonSignOut"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/buttonAddPost"
+        android:backgroundTint="#ECEFF1"
+        android:text="Çıkış Yap"
+        android:textColor="#212121" />
+
+    <Button
+        android:id="@+id/buttonEditProfile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/buttonSignOut"
+        android:backgroundTint="#ECEFF1"
+        android:text="Profili Düzenle"
+        android:textColor="#212121" />
+
+    <Button
+        android:id="@+id/buttonSearchUser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/buttonEditProfile"
+        android:backgroundTint="#ECEFF1"
+        android:text="Kullanıcı Ara"
+        android:textColor="#212121" />
+
+    <Button
+        android:id="@+id/buttonMyPosts"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/buttonSearchUser"
+        android:text="Benim Konumum"
+        android:backgroundTint="#ECEFF1"
+        android:textColor="#212121" />
+
+    <Button
+        android:id="@+id/buttonMyMatchs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/buttonMyPosts"
+        android:text="Talepler"
+        android:backgroundTint="#ECEFF1"
+        android:textColor="#212121" />
+
+
 </RelativeLayout>

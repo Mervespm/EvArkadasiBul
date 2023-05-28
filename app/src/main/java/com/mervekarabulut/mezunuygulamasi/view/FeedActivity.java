@@ -35,39 +35,6 @@ public class FeedActivity extends AppCompatActivity {
 
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater menuInflater = getMenuInflater();
-        menuInflater.inflate(R.menu.option_menu, menu);
-        return super.onCreateOptionsMenu(menu);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if(item.getItemId() == R.id.signOut){
-            auth.signOut();
-            Intent intentMain = new Intent(this, MainActivity.class);
-            startActivity(intentMain);
-            finish();
-        }else if(item.getItemId() == R.id.editProfile){
-            Intent intentMain = new Intent(this, UpdateProfileActivity.class);
-            startActivity(intentMain);
-        }else if(item.getItemId() == R.id.searchUser){
-            Intent intentMain = new Intent(this, SearchUserActivity.class);
-            startActivity(intentMain);
-        }else if(item.getItemId() == R.id.myPosts) {
-            Intent intentMain = new Intent(this, MapsActivity.class);
-            startActivity(intentMain);
-        }else if(item.getItemId() == R.id.add_post) {
-            Intent intentMain = new Intent(this, MapsActivity2.class);
-            startActivity(intentMain);
-        }else if(item.getItemId() == R.id.myMatchs) {
-            Intent intentMain = new Intent(this, MatchRequestList.class);
-            startActivity(intentMain);
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityFeedBinding.inflate(getLayoutInflater());
@@ -77,7 +44,74 @@ public class FeedActivity extends AppCompatActivity {
         auth = FirebaseAuth.getInstance();
         firebaseFirestore = FirebaseFirestore.getInstance();
 
+        // Kullanıcı Konumları butonu
+        binding.buttonAddPost.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(FeedActivity.this, MapsActivity2.class);
+                startActivity(intent);
+            }
+        });
+
+        // Çıkış Yap butonu
+        binding.buttonSignOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                auth.signOut();
+                Intent intentMain = new Intent(FeedActivity.this, MainActivity.class);
+                startActivity(intentMain);
+                finish();
+            }
+        });
+
+        // Profili Düzenle butonu
+        binding.buttonEditProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentMain = new Intent(FeedActivity.this, UpdateProfileActivity.class);
+                startActivity(intentMain);
+            }
+        });
+
+        // Kullanıcı Ara butonu
+        binding.buttonSearchUser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentMain = new Intent(FeedActivity.this, SearchUserActivity.class);
+                startActivity(intentMain);
+            }
+        });
+
+        // Benim Konumum butonu
+        binding.buttonMyPosts.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentMain = new Intent(FeedActivity.this, MapsActivity.class);
+                startActivity(intentMain);
+            }
+        });
+
+        // Talepler butonu
+        binding.buttonMyMatchs.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentMain = new Intent(FeedActivity.this, MatchRequestList.class);
+                startActivity(intentMain);
+            }
+        });
     }
+
+
+//    @Override
+//    protected void onCreate(Bundle savedInstanceState) {
+//        super.onCreate(savedInstanceState);
+//        binding = ActivityFeedBinding.inflate(getLayoutInflater());
+//        View view = binding.getRoot();
+//        setContentView(view);
+//
+//
+//
+//    }
 
 
 
