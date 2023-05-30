@@ -1,2 +1,2 @@
-# MezunUygulamasi
-Mobil Odevi
+# EV ARKADASI BUL UYGULAMASI
+Mobil Donem Projesi
